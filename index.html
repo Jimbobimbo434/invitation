@@ -375,12 +375,9 @@
     yesBtn.addEventListener("click", async () => {
 
   music.volume = 0.4;
-
-  // wait for audio to be ready
-  await music.play();
-
-  // NOW set time after it starts
+      
   music.currentTime = 5;
+  await music.play();
 
   confetti({
     particleCount: 250,
