@@ -372,25 +372,25 @@
     });
 
     // accept button
-    yesBtn.addEventListener("click", () => {
+    yesBtn.addEventListener("click", async () => {
 
-      // play music
-      music.currentTime = 5;
-      music.play();
+  music.volume = 0.4;
 
-      // confetti blast
-      confetti({
-        particleCount: 250,
-        spread: 120,
-        origin: { y: 0.6 }
-      });
+  // wait for audio to be ready
+  await music.play();
 
-      // emoji rain
-      startEmojiRain();
+  // NOW set time after it starts
+  music.currentTime = 45;
 
-      // switch pages
-      goToPage(2);
-    });
+  confetti({
+    particleCount: 250,
+    spread: 120,
+    origin: { y: 0.6 }
+  });
+
+  startEmojiRain();
+  goToPage(2);
+});
 
     function goToPage(pageNumber){
       document.querySelectorAll(".page").forEach(page => {
